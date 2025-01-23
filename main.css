@@ -552,14 +552,14 @@ body {
     }
 
     .movie-details p {
-        font-size: 0.9rem; /* Adjust description font size */
+        font-size: 0.9rem; 
     }
 }
 
 /* Mobile and Small Devices (Max Width: 480px) */
 @media screen and (max-width: 480px) {
     .movie-card {
-        flex: 0 0 100%; /* One card per row */
+        flex: 0 0 100%; 
         margin: 0.5rem 0;
     }
 
