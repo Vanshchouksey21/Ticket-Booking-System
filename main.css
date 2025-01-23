@@ -1,0 +1,370 @@
+        /* Root Variables */
+        :root {
+            --primary: #1F2A44; /* Dark Blue */
+            --secondary: #F4F7FC; /* Light Gray */
+            --accent: #F15C30; /* Orange */
+            --text-color: #333; /* Dark Gray */
+            --white: #fff;
+            --border: #ddd;
+        }
+        
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Rubik", sans-serif;
+            background: var(--secondary);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: var(--primary);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .navbar .logo {
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .navbar .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(118deg, var(--primary), var(--secondary));
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero .btn {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .hero .btn:hover {
+            background: #e14e00;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--secondary);
+        }
+        
+        .about h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .about p {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+/* Movies Slider Section */
+/* Main Slider Section */
+.movies-slider {
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Slider Container */
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;  /* Full width */
+}
+
+/* Slider Wrapper (Holds All the Cards) */
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: auto;  /* Allows for multiple items inside */
+}
+
+/* Movie Cards */
+.movie-card {
+    flex: 0 0 33.33%; /* Each card takes 1/3 of the slider's width */
+    padding: 1rem;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 1rem;
+    text-align: left;
+}
+
+/* Movie Image */
+.movie-image {
+    width: 100%;
+    height: 250px;  /* Adjusted for layout */
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Movie Details Section */
+.movie-details {
+    padding: 1.5rem;
+}
+
+.movie-details h3 {
+    font-size: 1.5rem;
+    color: #2d88f3;
+    margin-bottom: 0.5rem;
+}
+
+.movie-details p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+/* Book Now Button */
+.btn {
+    background-color: #2d88f3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #1e6ac2;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    background-color: #185ba2;
+    transform: translateY(2px);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(45, 136, 243, 0.7);
+}
+
+/* Pagination Buttons */
+.slider-pagination {
+    margin-top: 1.5rem;
+}
+
+.pagination-btn {
+    background: #2d88f3;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.pagination-btn:hover {
+    background: #1e6ac2;
+}
+
+.pagination-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .movie-card {
+        flex: 0 0 50%;  /* Show 2 cards at a time */
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-card {
+        flex: 0 0 100%;  /* Show 1 card at a time */
+    }
+}
+
+
+
+        
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .contact-description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: var(--white);
+        }
+        
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--secondary);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--accent);
+        }
+        
+        .contact-form textarea {
+            resize: none;
+        }
+        
+        .contact-form .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-form .btn:hover {
+            background: #e14e00;
+        }
+        
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1rem 2rem;
+            background: var(--secondary);
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        
+            .hero h1 {
+                font-size: 3rem;
+            }
+        
+            .hero p {
+                font-size: 1.1rem;
+            }
+        
+            .events .event-card {
+                margin: 1.5rem 0;
+            }
+        
+            .contact .contact-form input,
+            .contact .contact-form textarea {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        
+            .about p,
+            .contact p {
+                font-size: 1rem;
+            }
+        }

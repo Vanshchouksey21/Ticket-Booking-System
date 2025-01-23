@@ -1,0 +1,73 @@
+    
+    
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/signup.css">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+    <div id="contain">
+        <header id="header" data-aos="fade-down" data-aos-duration="2000">
+          <h1 class="main-heading">Welcome to Ticket.com</h1>
+          <p class="sub-heading">Create an account to get started</p>
+        </header>
+
+    <form class="container" data-aos="fade-up" data-aos-duration="3000" data-aos-delay="1000">
+        <h1> Sign-Up </h1>
+        
+        <!-- Name -->
+        <label for="name">Name</label>
+        <div class="input-container">
+            <i class="fas fa-user"></i>
+            <input type="text" name="name" id="name" placeholder="Enter your name" required>
+        </div>
+        <br>
+    
+        <!-- Mobile -->
+        <label for="mobile">Mobile</label>
+        <div class="input-container">
+            <i class="fas fa-phone"></i>
+            <input type="text" name="mobile" id="mobile" placeholder="Enter your mobile number" required>
+        </div>
+        <br>
+    
+        <!-- Email -->
+        <label for="email">Email</label>
+        <div class="input-container">
+            <i class="fas fa-envelope"></i>
+            <input type="text" name="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <br>
+    
+        <!-- Password -->
+        <label for="password">Password</label>
+        <div class="input-container">
+            <i class="fas fa-lock"></i>
+            <input type="text" name="password" id="password" placeholder="Enter your password" required>
+        </div>
+        <br>
+    
+        <!-- Terms & Conditions -->
+        <div class="terms-container">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
+        </div>
+        <br>
+    
+        <!-- Sign-Up Button -->
+        <input type="submit" value="Signup" onclick="return signup()" id="btn">
+    </form>
+    
+<script src="/signup.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+</body>
+</html>

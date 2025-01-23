@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Booking System</title>
+  <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+  <header id="header" class="navbar">
+    <div class="container">
+        <h1 class="logo">Ticket Booking</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero" data-aos="fade-up">
+    <h1>Book Your Favorite Events</h1>
+    <p>Easy and Secure Booking for Concerts, Shows, and More</p>
+    <a href="#events" class="btn">Explore Events</a>
+  </section>
+
+  <section id="movies" class="movies-slider">
+    <div class="container">
+        <h2 class="section-title">Released Movies</h2>
+        <p class="section-subtitle">Catch up on the blockbusters everyone is talking about!</p>
+  
+        <div class="slider" data-aos="fade-up">
+            <div class="slider-wrapper">
+                <!-- Movie Card 1 -->
+                <div class="movie-card">
+                    <img src="mv/i-1.avif" alt="Movie 1" class="movie-image">
+                    <div class="movie-details">
+                        <h3>The Grand Adventure</h3>
+                        <p>Release Date: 15th Jan 2025</p>
+                        <p>Genre: Action/Adventure</p>
+                        <p>Rating: ★★★★☆</p>
+                        <button class="btn" onclick="bookNow('The Grand Adventure')">Book Now</button>
+                    </div>
+                </div>
+                <!-- Movie Card 2 -->
+                <div class="movie-card">
+                    <img src="mv/i2.avif" alt="Movie 2" class="movie-image">
+                    <div class="movie-details">
+                        <h3>Romance in Paris</h3>
+                        <p>Release Date: 10th Jan 2025</p>
+                        <p>Genre: Romance</p>
+                        <p>Rating: ★★★★☆</p>
+                        <button class="btn" onclick="bookNow('Romance in Paris')">Book Now</button>
+                    </div>
+                </div>
+                <!-- Movie Card 3 -->
+                <div class="movie-card">
+                    <img src="mv/i3.avif" alt="Movie 3" class="movie-image">
+                    <div class="movie-details">
+                        <h3>Galaxy Wars: The Rise</h3>
+                        <p>Release Date: 5th Jan 2025</p>
+                        <p>Genre: Sci-Fi/Action</p>
+                        <p>Rating: ★★★★★</p>
+                        <button class="btn" onclick="bookNow('Galaxy Wars: The Rise')">Book Now</button>
+                    </div>
+                </div>
+                <!-- Movie Card 4 -->
+                <div class="movie-card">
+                    <img src="mv/i4.avif" alt="Movie 4" class="movie-image">
+                    <div class="movie-details">
+                        <h3>The Comedy Night</h3>
+                        <p>Release Date: 1st Jan 2025</p>
+                        <p>Genre: Comedy</p>
+                        <p>Rating: ★★★☆☆</p>
+                        <button class="btn" onclick="bookNow('The Comedy Night')">Book Now</button>
+                    </div>
+                </div>
+                <!-- Movie Card 5 -->
+                <div class="movie-card">
+                    <img src="mv/i5.avif" alt="Movie 5" class="movie-image">
+                    <div class="movie-details">
+                        <h3>The Haunted Castle</h3>
+                        <p>Release Date: 20th Dec 2024</p>
+                        <p>Genre: Horror</p>
+                        <p>Rating: ★★★★☆</p>
+                        <button class="btn" onclick="bookNow('The Haunted Castle')">Book Now</button>
+                    </div>
+                </div>
+                <!-- Movie Card 6 -->
+                <div class="movie-card">
+                    <img src="mv/i6.avif" alt="Movie 6" class="movie-image">
+                    <div class="movie-details">
+                        <h3>Dreamer's Journey</h3>
+                        <p>Release Date: 15th Dec 2024</p>
+                        <p>Genre: Drama</p>
+                        <p>Rating: ★★★★★</p>
+                        <button class="btn" onclick="bookNow('Dreamer\'s Journey')">Book Now</button>
+                    </div>
+                </div>
+                <!-- Movie Card 7 -->
+                <div class="movie-card">
+                    <img src="mv/i7.avif" alt="Movie 7" class="movie-image">
+                    <div class="movie-details">
+                        <h3>Fast Lanes</h3>
+                        <p>Release Date: 10th Dec 2024</p>
+                        <p>Genre: Action</p>
+                        <p>Rating: ★★★★☆</p>
+                        <button class="btn" onclick="bookNow('Fast Lanes')">Book Now</button>
+                    </div>
+                </div>
+                <!-- Movie Card 8 -->
+                <div class="movie-card">
+                    <!-- <img src="mv/i8.avif" alt="Movie 8" class="movie-image"> -->
+                    <div class="movie-details">
+                        <h3>Hidden Treasures</h3>
+                        <p>Release Date: 5th Dec 2024</p>
+                        <p>Genre: Adventure</p>
+                        <p>Rating: ★★★★☆</p>
+                        <button class="btn" onclick="bookNow('Hidden Treasures')">Book Now</button>
+                    </div>
+                </div>
+                <!-- Movie Card 9 -->
+                <div class="movie-card">
+                    <!-- <img src="mv/9.avif" alt="Movie 9" class="movie-image"> -->
+                    <div class="movie-details">
+                        <h3>Breaking Waves</h3>
+                        <p>Release Date: 1st Dec 2024</p>
+                        <p>Genre: Romance/Drama</p>
+                        <p>Rating: ★★★★★</p>
+                        <button class="btn" onclick="bookNow('Breaking Waves')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Pagination -->
+        <div class="slider-pagination">
+            <button class="pagination-btn prev" onclick="prevSlide()">&#10094;</button>
+            <button class="pagination-btn next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-right">
+        <h2>About Us</h2>
+        <p>Our mission is to make event ticket booking easy and seamless, offering the best events in music, theater, exhibitions, and more.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-left">
+        <h2>Contact Us</h2>
+        <p class="contact-description">
+            Have questions, feedback, or just want to say hello? Feel free to reach out to us. We'd love to hear from you!
+        </p>
+        <form class="contact-form" onsubmit="return submitContactForm()">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ticket Booking System. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Add the JavaScript files -->
+  <script src="/paggination.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+      AOS.init();
+  </script>
+  <script src="/main.js"></script>
+  </body>
+  </html>
