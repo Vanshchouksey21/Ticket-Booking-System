@@ -41,10 +41,17 @@ let login = () => {
 
     // Check if login credentials match
     if (loginEmail === storedEmail && loginPassword === storedPassword) {
+        localStorage.setItem('isLoggedIn',"true"); 
         alert("Login Successful");
         location.href = "index.html"; 
-    } else {
-        alert("Login credentials do not match!");
+        // return true ;
+
+       
     }
-    return false;
+    
+    else {
+        alert("Login credentials do not match!");
+      
+    }
+   return false;
 }

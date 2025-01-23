@@ -1,15 +1,28 @@
 // JavaScript for booking functionality
+// let isLoggedIn =false;
+
 function bookNow(movieName) {
-  const isLoggedIn = localStorage.getItem('isLoggedIn'); 
+  let isLoggedIn = localStorage.getItem('isLoggedIn'); 
+ 
 
   // Check login status before redirecting
   if (isLoggedIn === 'true') {
+    // isLoggedIn=true;
       alert(`Booking confirmed for "${movieName}"!`);
       window.location.href = 'booknow.html'; // Proceed to book now page
-  } else {
+      
+  }
+  
+ 
+  
+  else {
+    // isLoggedIn=false;
       alert(`Please log in to book tickets for "${movieName}".`);
       window.location.href = 'signup.html'; // Redirect to signup page
+      
   }
+
+  
 }
 
 
