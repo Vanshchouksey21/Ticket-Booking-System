@@ -102,13 +102,14 @@ body {
 .navbar .nav-links a:hover {
     color: var(--accent);
 }
-#log {
-    opacity: 0;
+#auth-btn {
+    opacity: 1;
     position: absolute;
-    right: 20px; 
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
-}
+  }
+  
 
 /* Hero Section */
 .hero {

@@ -57,19 +57,37 @@ let signup = () => {
       return false;
   }
 
-  if (!(signpassword.match(/[1234567890]/) &&
+  if (
+    !(
+      signpassword.match(/[1234567890]/) &&
       signpassword.match(/[!@#$%^&*()]/) &&
       signpassword.match(/[a-z]/) &&
-      signpassword.match(/[A-Z]/))) {
-      document.querySelector("#password").focus();
-      alert("Password should have at least one uppercase letter, one lowercase letter, one digit");
-      return false;
+      signpassword.match(/[A-Z]/)
+    )
+  ) {
+    document.querySelector("#password").focus();
+    Swal.fire({
+      title: "Weak Password",
+      text: "Password should have at least one uppercase letter, one lowercase letter, one digit, and one special character.",
+      icon: "warning",
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "OK"
+    });
+    return false;
   } else if (signpassword === "") {
-      errorpassword.setAttribute("placeholder", "Please Enter your Password");
-      errorpassword.classList.add('error');
-      document.querySelector("#password").focus();
-      return false;
+    errorpassword.setAttribute("placeholder", "Please Enter your Password");
+    errorpassword.classList.add('error');
+    document.querySelector("#password").focus();
+    Swal.fire({
+      title: "Password Required",
+      text: "Please enter your password.",
+      icon: "error",
+      confirmButtonColor: "#d33",
+      confirmButtonText: "OK"
+    });
+    return false;
   }
+  
 
   // Store values in localStorage if validation passes
   localStorage.setItem("name", signname);

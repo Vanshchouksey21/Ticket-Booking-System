@@ -1,40 +1,57 @@
-let isLoggedIn = localStorage.getItem('isLoggedIn'); 
-const logoutButton = document.querySelector('#log .logout-btn');
-
-let =opa=()=>{
-  let isLoggedIn = localStorage.getItem('isLoggedIn'); 
-  let lt = document.querySelector('#log');
-  if(isLoggedIn === 'true'){
-    lt.style="opacity:1";
-  }
+// Function to adjust the opacity based on login status
+function opa() {
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const lt = document.querySelector('#log');
+  // if (isLoggedIn === 'true') {
+  //   lt.style.opacity = "1";
+  // } 
+  // else {
+  //   lt.style.opacity = "0";
+  // }
 }
 
+// Function to handle the booking process
 function bookNow(movieName) {
-  let isLoggedIn = localStorage.getItem('isLoggedIn'); 
-  let lout=document.querySelector('#log');
- 
- 
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, book now"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      const lout = document.querySelector('#log');
 
-  // Check login status before redirecting
-  if (isLoggedIn === 'true') {
-    // isLoggedIn=true;
-    lout.style="opcacity:1";
-      alert(`Booking confirmed for "${movieName}"!`);
-      window.location.href = 'booknow.html'; // Proceed to book now page
-      
-  }
-  
- 
-  
-  else {
-    // isLoggedIn=false;
-      alert(`Please log in to book tickets for "${movieName}".`);
-      window.location.href = 'signup.html'; // Redirect to signup page
-      
-  }
-
-  
+      if (isLoggedIn === 'true') {
+        // lout.style.opacity = "1"; // Ensure correct spelling and use of `opacity`
+        Swal.fire({
+          title: "Booking Confirmed!",
+          text: `Proceeding with booking for "${movieName}".`,
+          icon: "success"
+        }).then(() => {
+          window.location.href = 'booknow.html'; // Proceed to book now page
+        });
+      } else {
+        Swal.fire({
+          title: "Not Logged In",
+          text: `Please log in to book tickets for "${movieName}".`,
+          icon: "info"
+        }).then(() => {
+          window.location.href = 'signup.html'; // Redirect to signup page
+        });
+      }
+    }
+  });
 }
+
+// Ensure the 'opa' function runs on page load
+// document.addEventListener('DOMContentLoaded', () => {
+//   opa();
+// });
+
 
 
 
@@ -46,23 +63,78 @@ function submitContactForm() {
   const message = document.getElementById('message').value.trim();
 
   if (name && email && message) {
-      alert('Thank you for contacting us! We will get back to you soon.');
-      return true; // Allow form submission
+    Swal.fire({
+      title: 'Thank you!',
+      text: 'Your message has been sent successfully.',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    }).then(() => {
+      // Optionally, reset the form or perform other actions
+      document.querySelector('.contact-form').reset();
+    });
+    return false; // Allow form submission
   } else {
-      alert('Please fill out all the fields.');
-      return false;
+    Swal.fire({
+      title: 'Oops!',
+      text: 'Please fill out all the fields.',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    });
+    return false; // Prevent form submission
   }
 }
 
-// for logout 
-let logoutt=()=>{
-  if(isLoggedIn === 'true'){
-  
-    localStorage.clear();
-    alert('You have been logged out successfully.');
-    window.location.href = 'index.html';
+
+
+let updateAuthButtons=()=> {
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const authBtn = document.querySelector('#auth-btn');
+
+  if (isLoggedIn === 'true') {
+    // Show Logout button
+    authBtn.innerHTML = `
+      <button onclick="logoutt()" class="btn logout-btn">Logout</button>
+    `;
+  } else {
+    // Show Signup button
+    authBtn.innerHTML = `
+      <button onclick="signupPage()" class="btn signup-btn">Signup</button>
+    `;
   }
 }
+
+// Function to redirect to the signup page
+let signupPage=()=> {
+  window.location.href = 'signup.html'; // Redirect to signup page
+}
+
+// Function for logout
+let logoutt = () => {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You will be logged out of your account.",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, log me out"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      localStorage.clear(); // Clear login status
+      Swal.fire({
+        title: "Logged Out!",
+        text: "You have been logged out successfully.",
+        icon: "success"
+      }).then(() => {
+        updateAuthButtons(); // Update buttons dynamically
+      });
+    }
+  });
+};
+
+// Initial button setup
+updateAuthButtons();
+
 
 
 // Function to toggle the navigation menu
