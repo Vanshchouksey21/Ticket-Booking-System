@@ -69,7 +69,7 @@ let logoutt=()=>{
 function toggleMenu() {
   const navLinks = document.querySelector('.nav-links');
   navLinks.style="display:block";
-  navLinks.classList.toggle('active');
+  // navLinks.classList.toggle('active');
   navLinks.classList.toggle('active')===true?navLinks.style="display:block":navLinks.style="display:none";
 
 }
