@@ -8,20 +8,23 @@
 
   <link rel="stylesheet" href="/main.css">
 </head>
-<body>
-  <header id="header" class="navbar">
-    <div class="container">
-        <h1 class="logo">Ticket Booking</h1>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#movies">Events</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-  </header>
+<body onload="opa()">
+    <header id="header" class="navbar">
+        <div class="container">
+            <h1 class="logo">Ticket Booking</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#movies">Events</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li id="log"><button onclick="logoutt()" class="btn logout-btn">logout</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+      
 
   <section id="home" class="hero">
     <div class="hero-content">
@@ -274,10 +277,10 @@
         </div>
   
         <!-- Pagination -->
-        <div class="slider-pagination">
+        <!-- <div class="slider-pagination">
             <button class="pagination-btn prev" onclick="prevSlide()">&#10094;</button>
             <button class="pagination-btn next" onclick="nextSlide()">&#10095;</button>
-        </div>
+        </div> -->
     </div>
   </section>
 
@@ -310,7 +313,7 @@
       </div>
   
       <div class="about-image" data-aos="fade-left">
-        <img src="images/about-us.jpg" alt="About Us" />
+        <!-- <img src="images/about-us.jpg" alt="About Us" /> -->
       </div>
     </div>
   </section>
@@ -356,12 +359,13 @@
 
 
   <!-- Add the JavaScript files -->
-  <script src="/paggination.js"></script>
+  <!-- <script src="/paggination.js"></script> -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
       AOS.init();
   </script>
   <script src="/main.js"></script>
+
   </body>
   </html>

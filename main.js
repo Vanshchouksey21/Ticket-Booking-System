@@ -1,13 +1,24 @@
-// JavaScript for booking functionality
-// let isLoggedIn =false;
+let isLoggedIn = localStorage.getItem('isLoggedIn'); 
+const logoutButton = document.querySelector('#log .logout-btn');
+
+let =opa=()=>{
+  let isLoggedIn = localStorage.getItem('isLoggedIn'); 
+  let lt = document.querySelector('#log');
+  if(isLoggedIn === 'true'){
+    lt.style="opacity:1";
+  }
+}
 
 function bookNow(movieName) {
   let isLoggedIn = localStorage.getItem('isLoggedIn'); 
+  let lout=document.querySelector('#log');
+ 
  
 
   // Check login status before redirecting
   if (isLoggedIn === 'true') {
     // isLoggedIn=true;
+    lout.style="opcacity:1";
       alert(`Booking confirmed for "${movieName}"!`);
       window.location.href = 'booknow.html'; // Proceed to book now page
       
@@ -43,4 +54,13 @@ function submitContactForm() {
   }
 }
 
+// for logout 
+let logoutt=()=>{
+  if(isLoggedIn === 'true'){
+  
+    localStorage.clear();
+    alert('You have been logged out successfully.');
+    window.location.href = 'index.html';
+  }
+}
 
