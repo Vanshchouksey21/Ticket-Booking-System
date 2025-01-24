@@ -1,243 +1,289 @@
 /* Global styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  h1, h2, h3 {
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .container {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1200px;
-  }
-  
-  section {
-    padding: 50px 0;
-  }
-  
-  header {
-    background-color: #333;
-    padding: 20px 0;
-  }
-  
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  header nav .logo img {
-    width: 150px;
-  }
-  
-  header nav .nav-links {
-    display: flex;
-    gap: 20px;
-  }
-  
-  header nav .nav-links li {
-    list-style: none;
-  }
-  
-  header nav .nav-links li a {
-    color: white;
-    font-weight: bold;
-  }
-  
-  header nav .nav-links li a:hover {
-    color: #ff6347;
-  }
-  
-  footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  /* Booking Section */
-  .booking-section {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .booking-section .section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .booking-card {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .movie-info {
-    flex: 1;
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .movie-info .movie-image {
-    width: 150px;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .movie-details {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .movie-details h3 {
-    font-size: 1.8rem;
-    color: #333;
-  }
-  
-  .movie-details p {
-    font-size: 1rem;
-    color: #777;
-    margin: 5px 0;
-  }
-  
-  /* Booking Form */
-  .booking-form {
-    flex: 1.5;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-width: 300px;
-  }
-  
-  .booking-form h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .booking-form label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .booking-form input, 
-  .booking-form select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .booking-form input[type="date"],
-  .booking-form select {
-    cursor: pointer;
-  }
-  
-  .booking-form button {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.2rem;
-    background-color: #28a745;
-    border-radius: 5px;
-  }
-  
-  .booking-form button:hover {
-    background-color: #218838;
-  }
-  
-  /* Seat Layout */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+h1, h2, h3 {
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+section {
+  padding: 50px 0;
+}
+
+header {
+  background-color: #333;
+  padding: 20px 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav .logo img {
+  width: 150px;
+}
+
+header nav .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+header nav .nav-links li {
+  list-style: none;
+}
+
+header nav .nav-links li a {
+  color: white;
+  font-weight: bold;
+}
+
+header nav .nav-links li a:hover {
+  color: #ff6347;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* Booking Section */
+.booking-section {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-section .section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.booking-card {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movie-info {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-info .movie-image {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.movie-details {
+  flex: 1;
+  text-align: center;
+}
+
+.movie-details h3 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.movie-details p {
+  font-size: 1rem;
+  color: #777;
+  margin: 5px 0;
+}
+
+/* Booking Form */
+.booking-form {
+  flex: 1.5;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+}
+
+.booking-form h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.booking-form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.booking-form input, 
+.booking-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.booking-form input[type="date"],
+.booking-form select {
+  cursor: pointer;
+}
+
+.booking-form button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  background-color: #28a745;
+  border-radius: 5px;
+}
+
+.booking-form button:hover {
+  background-color: #218838;
+}
+
+/* Seat Layout */
+.seat-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+ padding-left:30% ;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.seat:hover {
+  background-color: #28a745;
+  color: white;
+}
+
+.seat.selected {
+  background-color: #007BFF;
+  color: white;
+}
+
+.seat.booked {
+  background-color: #777;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
   .seat-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 10px;
   }
-  
+
   .row {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    padding-left: 28%;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
-  
+
   .seat {
-    width: 40px;
-    height: 40px;
-    background-color: #ddd;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    width: 35px;
+    height: 35px;
   }
-  
-  .seat:hover {
-    background-color: #28a745;
-    color: white;
+}
+
+@media (max-width: 768px) {
+  .seat-layout {
+    gap: 10px;
   }
-  
-  .seat.selected {
-    background-color: #007BFF;
-    color: white;
+
+  .row {
+    flex-direction: row;
+    justify-content: space-evenly;
   }
-  
-  .seat.booked {
-    background-color: #777;
-    color: #fff;
-    cursor: not-allowed;
+
+  .seat {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
   }
-  
-  /* Media Queries */
-  @media (max-width: 768px) {
-    .booking-card {
-      flex-direction: column;
-    }
-  
-    .movie-info,
-    .booking-form {
-      text-align: center;
-    }
+
+  .seat-layout {
+    gap: 5px;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .seat-layout {
+    gap: 5px;
+  }
+
+  .row {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .seat {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+  }
+
+  .seat-layout {
+    gap: 2px;
+  }
+}
