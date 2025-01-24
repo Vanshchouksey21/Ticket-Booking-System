@@ -23,6 +23,50 @@ body {
     margin: 0;
 }
 
+/* Style for the hamburger button */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        padding: 20px;
+    }
+
+    
+    .hamburger {
+        display: block;
+    }
+
+    
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+
 /* Navbar */
 .navbar {
     background: var(--primary);

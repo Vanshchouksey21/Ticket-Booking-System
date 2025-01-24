@@ -64,3 +64,11 @@ let logoutt=()=>{
   }
 }
 
+
+// Function to toggle the navigation menu
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.style="display:block";
+  navLinks.classList.toggle('active');
+}
+
