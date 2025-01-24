@@ -68,10 +68,15 @@ let logoutt=()=>{
 // Function to toggle the navigation menu
 function toggleMenu() {
   const navLinks = document.querySelector('.nav-links');
-  navLinks.style="display:block";
-  navLinks.classList.toggle('active');
-  navLinks.style="display:none";
 
+  // Check if the element has the 'active' class
+  if (navLinks.classList.contains('active')) {
+    navLinks.style.display = 'none'; 
+    navLinks.classList.remove('active'); 
+  } else {
+    navLinks.style.display = 'block';  
+    navLinks.classList.add('active'); 
+  }
 }
 
 
