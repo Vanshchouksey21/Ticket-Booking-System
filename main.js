@@ -69,7 +69,7 @@ let logoutt=()=>{
 function toggleMenu() {
   const navLinks = document.querySelector('.nav-links');
 
-  // Check if the element has the 'active' class
+ 
   if (navLinks.classList.contains('active')) {
     navLinks.style.display = 'none'; 
     navLinks.classList.remove('active'); 
