@@ -10,16 +10,6 @@ body {
   background-color: #f4f4f4;
   color: #333;
 }
-header nav .logo img {
-  width: 120px;  
-  height: auto;  
-  max-width: 100%;  
-}
-header nav .logo img {
-  width: 120px;  
-  height: 50px; 
-  object-fit: contain;  
-}
 
 a {
   text-decoration: none;
@@ -65,7 +55,12 @@ header nav {
   padding-right: 20px;
 }
 
-
+header nav .logo img {
+  width: 120px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
 
 header nav .nav-links {
   display: flex;
@@ -207,7 +202,6 @@ footer {
   display: flex;
   justify-content: center;
   gap: 10px;
- padding-left:30% ;
 }
 
 .seat {

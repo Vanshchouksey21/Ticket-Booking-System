@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book your movie and event tickets easily with our platform. Select your seats, pick a date, and enjoy your experience.">
   <title>Book Your Ticket</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="booknow.css">
@@ -11,7 +12,7 @@
   <header>
     <nav>
       <div class="logo">
-        <a href="/"><img src="/DALL·E 2025-01-24 23.16.02 - A modern and minimalistic logo for a movie and events booking website. The design features a film reel and a ticket, symbolizing movies and events, wi.webp" alt="Website Logo"></a>
+        <a href="/"><img src="/DALL·E 2025-01-24 23.16.02 - A modern and minimalistic logo for a movie and events booking website. The design features a film reel and a ticket, symbolizing movies and events, wi.webp" alt="Movie and Events Booking Website Logo"></a>
       </div>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
@@ -43,7 +44,7 @@
             <input type="text" id="name" name="name" required>
             
             <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
             
             <label for="ticket-count">Number of Tickets: <span id="ticket-count" class="ticket-count">0</span></label>
             
@@ -58,7 +59,7 @@
               <option value="7:00 PM">7:00 PM</option>
             </select>
             
-            <button type="submit" class="btn">Confirm Booking</button>
+            <button type="submit" class="btn" aria-label="Confirm Booking">Confirm Booking</button>
           </form>
         </div>
       </div>
@@ -68,6 +69,7 @@
         <h3>Select Your Seats</h3>
         <div class="seat-layout">
           <div class="row">
+            <h4>Row A</h4>
             <div class="seat" data-seat-id="A1">A1</div>
             <div class="seat" data-seat-id="A2">A2</div>
             <div class="seat" data-seat-id="A3">A3</div>
@@ -78,9 +80,9 @@
             <div class="seat" data-seat-id="A8">A8</div>
             <div class="seat" data-seat-id="A9">A9</div>
             <div class="seat" data-seat-id="A10">A10</div>
-
           </div>
           <div class="row">
+            <h4>Row B</h4>
             <div class="seat" data-seat-id="B1">B1</div>
             <div class="seat" data-seat-id="B2">B2</div>
             <div class="seat" data-seat-id="B3">B3</div>
@@ -91,9 +93,9 @@
             <div class="seat" data-seat-id="B8">B8</div>
             <div class="seat" data-seat-id="B9">B9</div>
             <div class="seat" data-seat-id="B10">B10</div>
-
           </div>
           <div class="row">
+            <h4>Row C</h4>
             <div class="seat" data-seat-id="C1">C1</div>
             <div class="seat" data-seat-id="C2">C2</div>
             <div class="seat" data-seat-id="C3">C3</div>
@@ -104,9 +106,9 @@
             <div class="seat" data-seat-id="C8">C8</div>
             <div class="seat" data-seat-id="C9">C9</div>
             <div class="seat" data-seat-id="C10">C10</div>
-
           </div>
           <div class="row">
+            <h4>Row D</h4>
             <div class="seat" data-seat-id="D1">D1</div>
             <div class="seat" data-seat-id="D2">D2</div>
             <div class="seat" data-seat-id="D3">D3</div>
@@ -117,19 +119,18 @@
             <div class="seat" data-seat-id="D8">D8</div>
             <div class="seat" data-seat-id="D9">D9</div>
             <div class="seat" data-seat-id="D10">D10</div>
-
           </div>
-          <!-- Add more rows as needed -->
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Movie Ticket Booking. All Rights Reserved.</p>
+    <p>&copy; 2025 Movie Ticket Booking. All Rights Reserved. <a href="/terms">Terms of Service</a> | <a href="/privacy">Privacy Policy</a></p>
   </footer>
-<!-- Add SweetAlert2 CDN -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Add SweetAlert2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script src="booknow.js"></script>
 </body>
