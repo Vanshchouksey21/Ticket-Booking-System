@@ -55,7 +55,7 @@ let seatElements = document.querySelectorAll(".seat");
         formValues[key] = value;
       });
 
-      
+       
       Swal.fire({
         icon: 'success',
         title: 'Booking Confirmed',

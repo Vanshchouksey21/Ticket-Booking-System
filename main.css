@@ -1,9 +1,9 @@
-/* Root Variables */
+
 :root {
     --primary: #1F2A44; /* Dark Blue */
     --secondary: #F4F7FC; /* Light Gray */
     --accent: #F15C30; /* Orange */
-    --text-color: #333; /* Dark Gray */
+    --text-color: #333; 
     --white: #fff;
     --border: #ddd;
 }

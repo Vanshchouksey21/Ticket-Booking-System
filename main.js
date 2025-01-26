@@ -14,7 +14,7 @@ function opa() {
 function bookNow(movieName) {
   Swal.fire({
     title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    text: `you want to book ${movieName}`,
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -105,7 +105,7 @@ let updateAuthButtons=()=> {
 
 // Function to redirect to the signup page
 let signupPage=()=> {
-  window.location.href = 'signup.html'; // Redirect to signup page
+  window.location.href = 'signup.html'; 
 }
 
 // Function for logout
@@ -120,13 +120,13 @@ let logoutt = () => {
     confirmButtonText: "Yes, log me out"
   }).then((result) => {
     if (result.isConfirmed) {
-      localStorage.clear(); // Clear login status
+      localStorage.clear(); 
       Swal.fire({
         title: "Logged Out!",
         text: "You have been logged out successfully.",
         icon: "success"
       }).then(() => {
-        updateAuthButtons(); // Update buttons dynamically
+        updateAuthButtons();
       });
     }
   });
