@@ -9,6 +9,7 @@
 body {
   background-color: #f4f4f4;
   color: #333;
+  line-height: 1.6;
 }
 
 a {
@@ -22,7 +23,7 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
@@ -58,8 +59,6 @@ header nav {
 header nav .logo img {
   width: 120px;
   height: auto;
-  max-width: 100%;
-  object-fit: contain;
 }
 
 header nav .nav-links {
@@ -89,7 +88,7 @@ footer {
 
 /* Booking Section */
 .booking-section {
-  background-color: white;
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -98,35 +97,31 @@ footer {
 .booking-section .section-title {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: #333;
 }
 
 .booking-card {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 .movie-info {
   flex: 1;
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 
 .movie-info .movie-image {
-  width: 150px;
+  width: 100%;
+  max-width: 180px;
   height: auto;
   border-radius: 10px;
 }
 
 .movie-details {
-  flex: 1;
-  text-align: center;
+  margin-top: 15px;
 }
 
 .movie-details h3 {
@@ -163,7 +158,7 @@ footer {
   color: #555;
 }
 
-.booking-form input, 
+.booking-form input,
 .booking-form select {
   width: 100%;
   padding: 10px;
@@ -195,8 +190,14 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
+.seat.booked {
+  background-color: #ff0000;
+  color: white;
+  pointer-events: none;
+}
+
 
 .row {
   display: flex;
@@ -213,7 +214,7 @@ footer {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .seat:hover {
@@ -230,17 +231,22 @@ footer {
   background-color: #777;
   color: #fff;
   cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* Media Queries */
 @media (max-width: 1024px) {
+  .booking-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .seat-layout {
     gap: 10px;
   }
 
   .row {
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 
   .seat {
@@ -251,11 +257,11 @@ footer {
 
 @media (max-width: 768px) {
   .seat-layout {
-    gap: 10px;
+    gap: 8px;
   }
 
   .row {
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
   }
 
@@ -264,29 +270,25 @@ footer {
     height: 30px;
     line-height: 30px;
   }
-
-  .seat-layout {
-    gap: 5px;
-  }
 }
 
 @media (max-width: 480px) {
+  .booking-form {
+    padding: 15px;
+  }
+
   .seat-layout {
     gap: 5px;
   }
 
   .row {
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 
   .seat {
     width: 25px;
     height: 25px;
     line-height: 25px;
-  }
-
-  .seat-layout {
-    gap: 2px;
+    font-size: 0.8rem;
   }
 }
