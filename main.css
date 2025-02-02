@@ -301,7 +301,7 @@ body {
     transition: transform 0.5s ease-in-out;
     width: auto;
     overflow-x: scroll;
-    scrollbar-width: none; /* For Firefox */
+    scrollbar-width: none; 
   }
   
   .slider-wrapper::-webkit-scrollbar {
@@ -393,6 +393,8 @@ body {
     background: #ccc;
     cursor: not-allowed;
 }
+/* Root Variables */
+
 
 /* Contact Section */
 .contact {
@@ -414,6 +416,7 @@ body {
     color: var(--white);
 }
 
+/* Contact Form */
 .contact-form {
     max-width: 700px;
     margin: 0 auto;
@@ -435,7 +438,13 @@ body {
     color: var(--text-color);
 }
 
+.contact-form textarea {
+    resize: none;
+}
+
+/* Submit Button */
 .contact-form button {
+    width: 100%;
     padding: 1rem 2rem;
     background: var(--accent);
     border: none;
@@ -444,12 +453,107 @@ body {
     font-weight: bold;
     border-radius: 30px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s ease-in-out;
 }
 
 .contact-form button:hover {
     background: #e14e00;
 }
+
+/* Feedback List Container */
+#feedback-list {
+    max-width: 700px;
+    height: 200px; 
+    overflow: hidden;
+    position: relative;
+    background: var(--secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    width: 100%;
+    animation: scrollFeedbacks 20s linear infinite;
+}
+
+/* Individual Feedback Item */
+.feedback-item {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 10px;
+    color: var(--text-color);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.08);
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.feedback-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Feedback Name */
+.feedback-item strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 5px;
+}
+
+/* Feedback Text */
+.feedback-item p {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+
+@keyframes scrollFeedbacks {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+}
+
+/* Pause on Hover */
+#feedback-list:hover .feedback-container {
+    animation-play-state: paused;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #feedback-list {
+        height: 200px; 
+        padding: 1rem;
+    }
+
+    .feedback-item {
+        padding: 12px;
+    }
+
+    .feedback-item strong {
+        font-size: 1rem;
+    }
+
+    .feedback-item p {
+        font-size: 0.9rem;
+    }
+}
+
+
 /* Footer Section */
 .footer {
     background: var(--primary);
