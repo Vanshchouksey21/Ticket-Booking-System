@@ -1,18 +1,31 @@
+// Wait for the DOM to fully load
+document.addEventListener("DOMContentLoaded", () => {
+    fetchFeedback(); // Load feedback when the page loads
+});
 
-async function submitContactForm() {
-    event.preventDefault();
+// Function to submit the contact form
+let submitContactForm = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    // Get form input values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
     const statusMessage = document.getElementById("status-message");
-    const loadingIndicator = document.getElementById("loading");
+    const loadingIndicator = document.getElementById("loading"); // Updated ID
+
+    // Simple form validation
+    if (!name || !email || !message) {
+        statusMessage.textContent = "All fields are required.";
+        statusMessage.style.color = "red";
+        return;
+    }
+
+    // Show loading indicator
+    loadingIndicator.style.display = "block";
+    statusMessage.textContent = ""; // Clear previous messages
 
     const formData = { name, email, message };
-
-    // Show loading
-    loadingIndicator.style.display = "block";
-    statusMessage.textContent = "";
 
     try {
         let response = await fetch("http://localhost:3000/vn", {
@@ -21,28 +34,29 @@ async function submitContactForm() {
             body: JSON.stringify(formData)
         });
 
-        loadingIndicator.style.display = "none"; // Hide loading
+        loadingIndicator.style.display = "none"; // Hide loading indicator
 
         if (response.ok) {
             statusMessage.textContent = "Message sent successfully!";
             statusMessage.style.color = "green";
-            document.querySelector(".contact-form").reset();
+            document.querySelector(".contact-form").reset(); // Reset form
             fetchFeedback(); // Refresh feedback list
         } else {
             statusMessage.textContent = "Failed to send message.";
             statusMessage.style.color = "red";
         }
     } catch (error) {
+        console.error("Error:", error);
         loadingIndicator.style.display = "none";
-        statusMessage.textContent = "An error occurred.";
+        statusMessage.textContent = "An error occurred. Please try again later.";
         statusMessage.style.color = "red";
     }
+};
 
-    return false;
-}
-
+// Function to fetch and display feedback
 async function fetchFeedback() {
     const feedbackList = document.getElementById("feedback-list");
+    const feedbackContainer = document.querySelector(".feedback-container");
 
     try {
         let response = await fetch("http://localhost:3000/vn");
@@ -53,11 +67,8 @@ async function fetchFeedback() {
             return;
         }
 
-        // Create a wrapper for smooth scrolling
-        let feedbackContainer = document.createElement("div");
-        feedbackContainer.classList.add("feedback-container");
+        feedbackContainer.innerHTML = ""; // Clear old content
 
-        // Append feedback items
         data.forEach(feedback => {
             let feedbackItem = document.createElement("div");
             feedbackItem.classList.add("feedback-item");
@@ -65,17 +76,11 @@ async function fetchFeedback() {
             feedbackContainer.appendChild(feedbackItem);
         });
 
-        // Append to feedback list
-        feedbackList.innerHTML = ""; // Clear old content
-        feedbackList.appendChild(feedbackContainer);
-
-        // Clone feedback items for seamless looping effect
-        let clone = feedbackContainer.cloneNode(true);
-        feedbackList.appendChild(clone);
     } catch (error) {
+        console.error("Error fetching feedback:", error);
         feedbackList.innerHTML = "<p>Failed to load feedback.</p>";
     }
 }
 
-// Load feedback on page load
-document.addEventListener("DOMContentLoaded", fetchFeedback);
+// Attach form submission event listener
+document.querySelector(".contact-form").addEventListener("submit", submitContactForm);

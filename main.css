@@ -1,8 +1,8 @@
 
 :root {
-    --primary: #1F2A44; /* Dark Blue */
-    --secondary: #F4F7FC; /* Light Gray */
-    --accent: #F15C30; /* Orange */
+    --primary: #1F2A44; 
+    --secondary: #F4F7FC; 
+    --accent: #F15C30; 
     --text-color: #333; 
     --white: #fff;
     --border: #ddd;
@@ -461,30 +461,37 @@ body {
 }
 
 /* Feedback List Container */
+/* Feedback List Container */
 #feedback-list {
     max-width: 700px;
-    height: 200px; 
+    height: 180px; /* Fixed height for scrolling effect */
     overflow: hidden;
     position: relative;
     background: var(--secondary);
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin: 2rem auto;
+    margin: 2rem auto; /* Centers horizontally */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-
+/* Scrolling Feedback Wrapper */
 .feedback-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
     position: absolute;
     width: 100%;
-    animation: scrollFeedbacks 20s linear infinite;
+    animation: scrollFeedbacks 20s linear infinite; /* Slow down scrolling */
+}
+
+/* Auto-scrolling Animation */
+@keyframes scrollFeedbacks {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
 }
 
 /* Individual Feedback Item */

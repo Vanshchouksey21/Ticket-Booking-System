@@ -334,7 +334,8 @@
         <p class="contact-description">
             Have questions, feedback, or just want to say hello? Feel free to reach out to us. We'd love to hear from you!
         </p>
-        <form class="contact-form" onsubmit="return submitContactForm()" data-aos="fade-in" data-aos-duration="2000" data-aos-delay="500">
+        
+        <form class="contact-form" id="contact-form" data-aos="fade-in" data-aos-duration="2000" data-aos-delay="500">
             <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -350,22 +351,23 @@
             <button type="submit" class="btn">Send Message</button>
         </form>
 
-        <!-- Loading indicator -->
-        <p id="loading" style="display: none;">Sending message...</p>
-
-        <!-- Success/Error Message -->
+        <!-- Status message (for success/error feedback) -->
         <p id="status-message"></p>
 
+        <!-- Loading indicator (Optional) -->
+        <p id="loading" style="display: none;">Sending message...</p>
+
         <h3>What Others Are Saying</h3>
-        
+
         <!-- Feedback list section -->
         <div id="feedback-list">
             <div class="feedback-container">
-                <p>Loading feedback...</p>
+                <!-- Feedback items will be inserted dynamically here -->
             </div>
         </div>
     </div>
 </section>
+
 
 
 
@@ -391,7 +393,7 @@
   
   <script src="/main.js"></script>
 
-  <script src="json.js"></script>
+  <script src="/json.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     window.addEventListener('load', () => {
