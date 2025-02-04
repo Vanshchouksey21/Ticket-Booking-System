@@ -1,253 +1,220 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* Body and Page Layout */
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f7fc;
-  color: #333;
-}
+    /* Body and Page Layout */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f7fc;
+      color: #333;
+    }
 
-header {
-  background-color: #1f2a44;
-  color: white;
-  padding: 20px;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
+    header {
+      background-color: #1f2a44;
+      color: white;
+      padding: 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
 
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-header .logo img {
-  max-width: 150px;
-}
+    header .logo img {
+      max-width: 40px;
+    }
 
-header .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
+    header .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
 
-header .nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-}
+    header .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-header .nav-links li a:hover {
-  color: #f15c30;
-}
+    header .nav-links li a:hover {
+      color: #f15c30;
+    }
 
-main {
-  padding-top: 80px; /* Adjust for fixed header */
-  padding: 40px;
-}
+    main {
+      padding-top: 80px;
+      padding: 40px;
+    }
 
-/* Section Title */
-.section-title {
-  font-size: 2rem;
-  color: #1f2a44;
-  text-align: center;
-  margin-bottom: 30px;
-}
+    /* Section Title */
+    .section-title {
+      font-size: 2rem;
+      color: #1f2a44;
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-/* Booking Card Layout */
-.booking-card {
-  display: flex;
-  justify-content: space-between;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
-}
+    /* Booking Card Layout */
+    .booking-card {
+      display: flex;
+      justify-content: space-between;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
 
-/* Movie Info */
-.movie-info {
-  display: flex;
-  gap: 20px;
-  flex: 1;
-}
+    /* Movie Info */
+    .movie-info {
+      display: flex;
+      gap: 20px;
+      flex: 1;
+    }
 
-.movie-info img {
-  max-width: 200px;
-  border-radius: 10px;
-  object-fit: cover;
-}
+    .movie-info img {
+      max-width: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
 
-.movie-details h3 {
-  color: #1f2a44;
-  font-size: 1.5rem;
-}
+    .movie-details h3 {
+      color: #1f2a44;
+      font-size: 1.5rem;
+    }
 
-.movie-details p {
-  color: #777;
-  margin: 5px 0;
-}
+    .movie-details p {
+      color: #777;
+      margin: 5px 0;
+    }
 
-.booking-form {
-  flex: 1;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+    .booking-form {
+      flex: 1;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-.booking-form h3 {
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  color: #1f2a44;
-}
+    .booking-form h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: #1f2a44;
+    }
 
-.booking-form label {
-  font-size: 1rem;
-  margin-bottom: 5px;
-  display: block;
-  color: #555;
-}
+    .booking-form label {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      display: block;
+      color: #555;
+    }
 
-.booking-form input,
-.booking-form select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-}
+    .booking-form input,
+    .booking-form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
 
-.booking-form button {
-  background-color: #f15c30;
-  color: white;
-  padding: 12px 20px;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-}
+    .booking-form button {
+      background-color: #f15c30;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
 
-.booking-form button:hover {
-  background-color: #e04e22;
-}
+    .booking-form button:hover {
+      background-color: #e04e22;
+    }
 
-/* Seat Selection Styles */
-.seat-selection {
-  display: flex;
-  justify-content:space-around;
-  margin-top: 40px;
-}
+    /* Seat Selection Styles */
+    .seat-selection {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 40px;
+    }
 
-.seat-layout {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 12px;
-  margin-bottom: 30px;
-}
+    .seat-layout {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr); /* 10 columns */
+      gap: 12px;
+      margin-bottom: 30px;
+    }
 
-.row {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+    .row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-.row h4 {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
-}
+    .row h4 {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
 
-.seat {
-  display: flex;
-  width: 140px;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 12px;
-  font-size: 1rem;
-  text-align: center;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
+    .seat {
+      display: flex;
+      width: 140px;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 12px;
+      font-size: 1rem;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
 
-.seat:hover {
-  background-color: #f15c30;
-  color: white;
-  transform: scale(1.1);
-}
+    .seat:hover {
+      background-color: #f15c30;
+      color: white;
+      transform: scale(1.1);
+    }
 
-.seat.selected {
-  background-color: #4caf50;
-  color: white;
-}
+    .seat.selected {
+      background-color: #4caf50;
+      color: white;
+    }
 
-.seat.booked {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
+    .seat.booked {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
 
-.seat.booked:hover {
-  background-color: #ccc;
-}
+    .seat.booked:hover {
+      background-color: #ccc;
+    }
 
-/* Ticket Count */
-.ticket-count {
-  font-weight: bold;
-  color: #f15c30;
-}
+    /* Ticket Count */
+    .ticket-count {
+      font-weight: bold;
+      color: #f15c30;
+    }
 
-/* Footer */
-footer {
-  background-color: #1f2a44;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
-footer a {
-  color: #f15c30;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .booking-card {
-    flex-direction: column;
-  }
-
-  .movie-info {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .movie-info img {
-    max-width: 100%;
-  }
-
-  .seat-layout {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  .seat-selection {
-    margin-top: 20px;
-  }
-}
+    /* Footer */
+    footer {
+      background-color: #1f2a44;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }

@@ -2,12 +2,7 @@
 function opa() {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   const lt = document.querySelector('#log');
-  // if (isLoggedIn === 'true') {
-  //   lt.style.opacity = "1";
-  // } 
-  // else {
-  //   lt.style.opacity = "0";
-  // }
+
 }
 
 // Function to handle the booking process
@@ -15,7 +10,7 @@ function bookNow(movieName) {
   Swal.fire({
     title: "Are you sure?",
     text: `you want to book ${movieName}`,
-    icon: "warning",
+    icon: "question",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
@@ -51,41 +46,6 @@ function bookNow(movieName) {
 // document.addEventListener('DOMContentLoaded', () => {
 //   opa();
 // });
-
-
-
-
-
-// JavaScript for form submission
-function submitContactForm() {
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-
-  if (name && email && message) {
-    Swal.fire({
-      title: 'Thank you!',
-      text: 'Your message has been sent successfully.',
-      icon: 'success',
-      confirmButtonText: 'OK'
-    }).then(() => {
-      // Optionally, reset the form or perform other actions
-      document.querySelector('.contact-form').reset();
-    });
-    return false; // Allow form submission
-  } else {
-    Swal.fire({
-      title: 'Oops!',
-      text: 'Please fill out all the fields.',
-      icon: 'error',
-      confirmButtonText: 'OK'
-    });
-    return false; // Prevent form submission
-  }
-}
-
-
-
 let updateAuthButtons=()=> {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   const authBtn = document.querySelector('#auth-btn');

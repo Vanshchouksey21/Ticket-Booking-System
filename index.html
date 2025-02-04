@@ -348,11 +348,11 @@
                 <label for="message">Message</label>
                 <textarea id="message" name="message" placeholder="Write your message here..." rows="5" required></textarea>
             </div>
-            <button type="submit" class="btn">Send Message</button>
+            <button type="submit" class="btn" id="submit-btn">Send Message</button>
         </form>
 
         <!-- Status message (for success/error feedback) -->
-        <p id="status-message"></p>
+        <p id="status-message" aria-live="polite"></p>
 
         <!-- Loading indicator (Optional) -->
         <p id="loading" style="display: none;">Sending message...</p>
@@ -367,6 +367,7 @@
         </div>
     </div>
 </section>
+
 
 
 
@@ -387,13 +388,14 @@
 
 
   <!-- Add the JavaScript files -->
+
+  <script src="/json.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   
   <script src="/main.js"></script>
 
-  <script src="/json.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     window.addEventListener('load', () => {

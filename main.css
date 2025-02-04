@@ -461,7 +461,6 @@ body {
 }
 
 /* Feedback List Container */
-/* Feedback List Container */
 #feedback-list {
     max-width: 700px;
     height: 180px; /* Fixed height for scrolling effect */
@@ -471,7 +470,7 @@ body {
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin: 2rem auto; /* Centers horizontally */
+    margin: 2rem auto; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -483,15 +482,21 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    position: absolute;
     width: 100%;
-    animation: scrollFeedbacks 20s linear infinite; /* Slow down scrolling */
+    animation: scrollFeedbacks 20s linear infinite alternate; 
+}
+
+/* Duplicate the content for seamless scrolling */
+.feedback-container::after {
+    content: "";
+    display: block;
+    height: 100%; /* Prevents empty space */
 }
 
 /* Auto-scrolling Animation */
 @keyframes scrollFeedbacks {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); }
+    100% { transform: translateY(-200%); } /* Adjust for longer feedbacks */
 }
 
 /* Individual Feedback Item */
@@ -529,12 +534,6 @@ body {
     line-height: 1.5;
 }
 
-
-@keyframes scrollFeedbacks {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); }
-}
-
 /* Pause on Hover */
 #feedback-list:hover .feedback-container {
     animation-play-state: paused;
@@ -559,7 +558,6 @@ body {
         font-size: 0.9rem;
     }
 }
-
 
 /* Footer Section */
 .footer {
