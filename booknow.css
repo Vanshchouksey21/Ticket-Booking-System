@@ -218,3 +218,57 @@
       padding: 20px;
       margin-top: 40px;
     }
+
+
+    /* Responsive Styles */
+
+/* Navigation Adjustments */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+  }
+}
+
+/* Responsive Booking Section */
+@media (max-width: 768px) {
+  .booking-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .movie-info img {
+    max-width: 100%;
+  }
+
+  .booking-form {
+    width: 100%;
+  }
+}
+
+/* Responsive Seat Layout */
+@media (max-width: 600px) {
+  .seat-layout {
+    grid-template-columns: repeat(5, 1fr); /* Reduce columns on small screens */
+  }
+}
+
+/* Footer Adjustments */
+@media (max-width: 600px) {
+  footer {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+}
