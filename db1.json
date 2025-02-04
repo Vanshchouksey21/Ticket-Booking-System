@@ -73,4 +73,62 @@
       "message": "ycdgfyucdguecg"
     }
   ]
+  ,
+    "tickects": [
+      {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "date": "2025-02-04",
+        "time": "7:00 PM",
+        "seats": [
+          "1",
+          "2",
+          "3"
+        ],
+        "id": "7818"
+      },
+      {
+        "name": "Jane Smith",
+        "email": "jane.smith@example.com",
+        "date": "2025-02-04",
+        "time": "1:00 PM",
+        "seats": [
+          "4",
+          "5",
+          "6"
+        ],
+        "id": "8a92"
+      },
+      {
+        "id": "4f29",
+        "name": "AMAR",
+        "email": "anshchouksey2175@gmail.com",
+        "date": "2025-02-07",
+        "time": "10:00 AM",
+        "seats": [
+          "11"
+        ]
+      },
+      {
+        "id": "b718",
+        "name": "AMAR",
+        "email": "anshchouksey2175@gmail.com",
+        "date": "2025-02-14",
+        "time": "10:00 AM",
+        "seats": [
+          "12"
+        ]
+      },
+      {
+        "id": "8450",
+        "name": "ansh",
+        "email": "anshchouksey2175@gmail.com",
+        "date": "2025-02-15",
+        "time": "10:00 AM",
+        "seats": [
+          "21"
+        ]
+      }
+    ]
+  
 }
