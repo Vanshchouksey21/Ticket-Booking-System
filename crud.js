@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/TicketDetails';
+const apiUrl = 'http://localhost:3000/tickects';
 
 // Fetch Data and Display Booked Tickets
 const fetchData = async () => {

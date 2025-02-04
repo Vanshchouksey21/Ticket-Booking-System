@@ -73,23 +73,24 @@ bookingForm.addEventListener('submit', async (e) => {
         seat.classList.add('booked');
         seat.classList.remove('selected');
       });
-
-      // Show success message
-      Swal.fire({
+    
+      // Wait for the user to click "OK" before proceeding
+      await Swal.fire({
         title: 'Booking Confirmed!',
         text: `Your ticket has been successfully booked for ${newBooking.name}.`,
         icon: 'success',
         confirmButtonText: 'OK',
-      }).then(() => {
-        // Redirect to the homepage (index.html) after clicking "OK"
-        window.location.href = 'index.html';
       });
-
-      // Clear the form and selected seats
+    
+      // Redirect to homepage after user confirms
+      window.location.href = 'index.html';
+    
+      // Clear the form and reset selected seats
       bookingForm.reset();
       selectedSeats = [];
       updateTicketCount();
-    } else {
+    }
+     else {
       throw new Error('Failed to save booking');
     }
   } catch (error) {
