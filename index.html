@@ -10,24 +10,21 @@
   <link rel="stylesheet" href="/main.css">
 </head>
 <body onload="opa()">
-    <header id="header" class="navbar">
+    <header class="navbar">
         <div class="container">
             <h1 class="logo">Ticket Booking</h1>
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-links" id="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#movies">Events</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li id="auth-btn" >
-                      <!-- Buttons will be dynamically updated here -->
+                    <li id="admin-panel" style="display: none;">
+                        <a href="crud.html">Admin Panel</a>
                     </li>
-                  </ul>
-                  
-                <!-- Hamburger Icon -->
-                <button class="hamburger" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
+                    <li id="auth-btn"></li>
+                </ul>
+                <button class="hamburger" onclick="toggleMenu()">☰</button>
             </nav>
         </div>
     </header>

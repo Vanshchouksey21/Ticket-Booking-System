@@ -10,12 +10,18 @@ document.getElementById("logoutBtn").addEventListener("click", function() {
         cancelButtonText: 'Cancel'
     }).then((result) => {
         if (result.isConfirmed) {
-            // Add your logout logic here
-            Swal.fire(
-                'Logged Out!',
-                'You have successfully logged out.',
-                'success'
-            );
+            // Clear login session
+            localStorage.removeItem('isLoggedIn');
+
+            // Show success message
+            Swal.fire({
+                title: 'Logged Out!',
+                text: 'You have successfully logged out.',
+                icon: 'success'
+            }).then(() => {
+                // Redirect to index.html
+                window.location.href = 'index.html';
+            });
         }
     });
 });

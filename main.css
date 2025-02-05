@@ -102,15 +102,43 @@ body {
 .navbar .nav-links a:hover {
     color: var(--accent);
 }
+
 #auth-btn {
-    opacity: 1;
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-  }
-  
+}
 
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background: var(--primary);
+        width: 100%;
+        top: 60px;
+        left: 0;
+        padding: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
 /* Hero Section */
 .hero {
     background: linear-gradient(118deg, var(--primary), var(--secondary));

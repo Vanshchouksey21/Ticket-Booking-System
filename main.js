@@ -46,51 +46,57 @@ function bookNow(movieName) {
 // document.addEventListener('DOMContentLoaded', () => {
 //   opa();
 // });
-let updateAuthButtons=()=> {
+ // Function to update authentication buttons and admin panel visibility
+ function updateAuthButtons() {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
-  const authBtn = document.querySelector('#auth-btn');
+  const authBtn = document.getElementById('auth-btn');
+  const adminPanel = document.getElementById('admin-panel');
 
   if (isLoggedIn === 'true') {
-    // Show Logout button
-    authBtn.innerHTML = `
-      <button onclick="logoutt()" class="btn logout-btn">Logout</button>
-    `;
+      authBtn.innerHTML = `<button onclick="logout()" class="btn">Logout</button>`;
+      adminPanel.style.display = "block";  // Show admin panel
   } else {
-    // Show Signup button
-    authBtn.innerHTML = `
-      <button onclick="signupPage()" class="btn signup-btn">Signup</button>
-    `;
+      authBtn.innerHTML = `<button onclick="signupPage()" class="btn">Signup</button>`;
+      adminPanel.style.display = "none";  // Hide admin panel
   }
 }
 
-// Function to redirect to the signup page
-let signupPage=()=> {
-  window.location.href = 'signup.html'; 
+// Redirect to signup page
+function signupPage() {
+  window.location.href = 'signup.html';
 }
 
-// Function for logout
-let logoutt = () => {
+// Logout function
+function logout() {
   Swal.fire({
-    title: "Are you sure?",
-    text: "You will be logged out of your account.",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, log me out"
+      title: "Are you sure?",
+      text: "You will be logged out.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, log me out"
   }).then((result) => {
-    if (result.isConfirmed) {
-      localStorage.clear(); 
-      Swal.fire({
-        title: "Logged Out!",
-        text: "You have been logged out successfully.",
-        icon: "success"
-      }).then(() => {
-        updateAuthButtons();
-      });
-    }
+      if (result.isConfirmed) {
+          localStorage.removeItem('isLoggedIn');
+          Swal.fire({
+              title: "Logged Out!",
+              text: "You have successfully logged out.",
+              icon: "success"
+          }).then(() => {
+              updateAuthButtons();
+          });
+      }
   });
-};
+}
+
+// Toggle mobile menu
+function toggleMenu() {
+  document.getElementById('nav-links').classList.toggle('active');
+}
+
+// Run check on page load
+updateAuthButtons();
 
 // Initial button setup
 updateAuthButtons();
