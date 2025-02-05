@@ -58,7 +58,7 @@ bookingForm.addEventListener('submit', async (e) => {
 
   try {
     // Send new booking data to your backend
-    const response = await fetch('http://localhost:3000/tickects', {
+    const response = await fetch('http://localhost:3000/tickets', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ bookingForm.addEventListener('submit', async (e) => {
 // Load booked seats from the server and mark them as booked
 const loadBookedSeats = async () => {
   try {
-    const response = await fetch('http://localhost:3000/tickects');
+    const response = await fetch('http://localhost:3000/tickets');
     const bookings = await response.json();
     
     let bookedSeats = new Set();
