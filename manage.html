@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Bookings</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+/* Define Theme Colors */
+:root {
+    --primary: #1F2A44; /* Dark Blue */
+    --secondary: #F4F7FC; /* Light Background */
+    --accent: #F15C30; /* Orange */
+    --text-color: #333; /* Dark Text */
+    --white: #fff;
+    --border: #ddd;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--secondary);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+/* Admin Panel Layout */
+.admin-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: var(--primary);
+    color: var(--white);
+    padding: 20px;
+    height: 100vh;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--white);
+    display: block;
+    font-size: 18px;
+}
+
+.sidebar ul li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* Main Content */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    height: 90vh;
+    overflow-y: auto;
+}
+/* Logout Button */
+#logoutBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#logoutBtn:hover {
+    background-color: #c0392b;
+}
+
+/* Ensure the header is positioned properly */
+header {
+    position: relative;
+}
+
+/* Header */
+header h1 {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Search Section */
+.search-section {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-section input {
+    padding: 10px;
+    width: 200px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-section input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0px 0px 8px rgba(241, 92, 48, 0.3);
+}
+
+.search-section button {
+    padding: 10px 15px;
+    background-color: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-section button:hover {
+    background-color: #d94824;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--border);
+    font-size: 16px;
+}
+
+table th {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* Delete Button */
+button.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button.delete-btn:hover {
+    background-color: #e60000;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .search-section input {
+        width: 180px;
+    }
+
+    table th, table td {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .admin-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .sidebar ul {
+        display: flex;
+        gap: 10px;
+    }
+
+    .sidebar ul li {
+        padding: 10px;
+    }
+
+    .sidebar ul li a {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .search-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-section input {
+        width: 100%;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        flex-direction: column;
+    }
+
+    .sidebar ul {
+        flex-direction: column;
+    }
+
+    .sidebar ul li {
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .container {
+        width: 98%;
+        padding: 15px;
+    }
+
+    table th, table td {
+        font-size: 12px;
+    }
+
+    button.delete-btn {
+        padding: 4px 8px;
+    }
+}
+
+    
+
+  </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div>
+                <h2>Admin Panel</h2>
+                <ul>
+                    <li><a href="/crud.html">Dashboard</a></li>
+                    <li><a href="/details.html">Users</a></li>
+                    <li><a href="/manage.html">Bookings</a></li>
+                
+                </ul>
+            </div>
+            
+        </aside>
+  <div class="container">
+    <header>
+        
+      <h1>Manage Bookings</h1>
+      <button id="logoutBtn">Logout</button>
+    </header>
+    
+    <div class="search-section">
+      <label for="search-input">Search by Booking ID</label>
+      <input type="text" id="search-input" placeholder="Enter Booking ID">
+      <button id="search-btn">Search</button>
+    </div>
+    
+    <table id="booking-table">
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>Customer Name</th>
+          <th>Emails</th>
+          <th>Date</th>
+          <th>Seats</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Booking data will be dynamically populated here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script 
+  >
+// Function to fetch bookings data from the JSON server
+async function fetchBookingsData() {
+  try {
+    const response = await fetch('http://localhost:3000/tickets');
+    const bookings = await response.json();
+    displayBookings(bookings);
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+  }
+}
+
+// Function to display the bookings in the table
+function displayBookings(bookings) {
+  const tableBody = document.querySelector("#booking-table tbody");
+  tableBody.innerHTML = '';
+
+  bookings.forEach(booking => {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${booking.id}</td>
+      <td>${booking.name}</td>
+      <td>${booking.email}</td>
+      <td>${booking.date}</td>
+      <td>${booking.seats}</td>
+      <td><button class="delete-btn" onclick="deleteBooking('${booking.id}')">Cancel Tickets</button></td>
+    `;
+
+    tableBody.appendChild(row);
+  });
+}
+
+// Function to delete a booking
+async function deleteBooking(bookingId) {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "This action cannot be undone!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'Cancel',
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      try {
+        // Send DELETE request to JSON server
+        await fetch(`http://localhost:3000/tickets/${bookingId}`, {
+          method: 'DELETE'
+        });
+
+        // After deletion, fetch the updated bookings
+        fetchBookingsData();
+
+        Swal.fire('Deleted!', 'The booking has been deleted.', 'success');
+      } catch (error) {
+        console.error("Error deleting booking: ", error);
+      }
+    }
+  });
+}
+
+    // Search bookings by ID
+    document.getElementById('search-btn').addEventListener('click', async function() {
+    const searchInput = document.getElementById('search-input').value.toLowerCase();
+
+    try {
+        const response = await fetch('http://localhost:3000/tickets');
+        const bookings = await response.json();
+
+        const filteredBookings = bookings.filter(booking => booking.id.toLowerCase().includes(searchInput));
+        displayBookings(filteredBookings);
+    } catch (error) {
+        console.error("Error fetching data: ", error);
+    }
+    });
+
+// Initial fetch of bookings data when the page loads
+fetchBookingsData();
+
+
+document.getElementById("logoutBtn").addEventListener("click", function () {
+        localStorage.clear(); // Clear local storage
+        window.location.href = "index.html"; // Redirect to index.html
+    });
+
+
+</script>
+</body>
+</html>
