@@ -29,7 +29,7 @@
 body {
     background-color: var(--secondary);
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
 }
 
@@ -37,7 +37,7 @@ body {
 .admin-container {
     display: flex;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 /* Sidebar */
@@ -82,15 +82,130 @@ body {
     border-radius: 5px;
 }
 
+/* Movies Slider Section */
+.movies-slider {
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    text-align: center;
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: auto;
+    overflow-x: scroll;
+    scrollbar-width: none; 
+  }
+  
+  .slider-wrapper::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+  }
+  
+
+.movie-card {
+    flex: 0 0 33.33%;
+    padding: 1rem;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 1rem;
+    text-align: left;
+}
+
+.movie-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.movie-details {
+    padding: 1.5rem;
+}
+
+.movie-details h3 {
+    font-size: 1.5rem;
+    color: #2d88f3;
+    margin-bottom: 0.5rem;
+}
+
+.movie-details p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+.btn {
+    background-color: #2d88f3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #1e6ac2;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    background-color: #185ba2;
+    transform: translateY(2px);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(45, 136, 243, 0.7);
+}
+
+.slider-pagination {
+    margin-top: 1.5rem;
+}
+
+.pagination-btn {
+    background: #2d88f3;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.pagination-btn:hover {
+    background: #1e6ac2;
+}
+
+.pagination-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
 /* Main Content */
 .container {
-    width: 80%;
+    width: 97%;
+    height: 100vh;
     margin: 0 auto;
     padding: 20px;
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    height: 90vh;
+    /* height: 90vh; */
     overflow-y: auto;
 }
 /* Logout Button */
@@ -315,6 +430,7 @@ button.delete-btn:hover {
             </div>
             
         </aside>
+        
   <div class="container">
     <header>
         
@@ -343,6 +459,124 @@ button.delete-btn:hover {
         <!-- Booking data will be dynamically populated here -->
       </tbody>
     </table>
+
+ 
+
+        <div class="container">
+            <h2 class="section-title">Released Movies</h2>
+            <p class="section-subtitle">Catch up on the blockbusters everyone is talking about!</p>
+      
+            <div class="slider" data-aos="fade-up">
+                <div class="slider-wrapper">
+                    <!-- Movie Card 1 -->
+                    <div class="movie-card">
+                        <img src="mv/r1.avif" alt="Movie 1" class="movie-image">
+                        <div class="movie-details">
+                            <h3>The Grand Adventure</h3>
+                            <p>Release Date: 15th Jan 2025</p>
+                            <p>Genre: Action/Adventure</p>
+                            <p>Rating: ★★★★☆</p>
+                            <button class="btn" onclick="bookNow('The Grand Adventure')">Book Now</button>
+                        </div>
+                    </div>
+                    <!-- Movie Card 2 -->
+                    <div class="movie-card">
+                        <img src="mv/r2.avif" alt="Movie 2" class="movie-image">
+                        <div class="movie-details">
+                            <h3>Romance in Paris</h3>
+                            <p>Release Date: 10th Jan 2025</p>
+                            <p>Genre: Romance</p>
+                            <p>Rating: ★★★★☆</p>
+                            <button class="btn" onclick="bookNow('Romance in Paris')">Book Now</button>
+                        </div>
+                    </div>
+                    <!-- Movie Card 3 -->
+                    <div class="movie-card">
+                        <img src="mv/r3.avif" alt="Movie 3" class="movie-image">
+                        <div class="movie-details">
+                            <h3>Galaxy Wars: The Rise</h3>
+                            <p>Release Date: 5th Jan 2025</p>
+                            <p>Genre: Sci-Fi/Action</p>
+                            <p>Rating: ★★★★★</p>
+                            <button class="btn" onclick="bookNow('Galaxy Wars: The Rise')">Book Now</button>
+                        </div>
+                    </div>
+                    <!-- Movie Card 4 -->
+                    <div class="movie-card">
+                        <img src="mv/r4.avif" alt="Movie 4" class="movie-image">
+                        <div class="movie-details">
+                            <h3>The Comedy Night</h3>
+                            <p>Release Date: 1st Jan 2025</p>
+                            <p>Genre: Comedy</p>
+                            <p>Rating: ★★★☆☆</p>
+                            <button class="btn" onclick="bookNow('The Comedy Night')">Book Now</button>
+                        </div>
+                    </div>
+                    <!-- Movie Card 5 -->
+                    <div class="movie-card">
+                        <img src="mv/r5.avif" alt="Movie 5" class="movie-image">
+                        <div class="movie-details">
+                            <h3>The Haunted Castle</h3>
+                            <p>Release Date: 20th Dec 2024</p>
+                            <p>Genre: Horror</p>
+                            <p>Rating: ★★★★☆</p>
+                            <button class="btn" onclick="bookNow('The Haunted Castle')">Book Now</button>
+                        </div>
+                    </div>
+                    <!-- Movie Card 6 -->
+                    <div class="movie-card">
+                        <img src="mv/i6.avif" alt="Movie 6" class="movie-image">
+                        <div class="movie-details">
+                            <h3>Dreamer's Journey</h3>
+                            <p>Release Date: 15th Dec 2024</p>
+                            <p>Genre: Drama</p>
+                            <p>Rating: ★★★★★</p>
+                            <button class="btn" onclick="bookNow('Dreamer\'s Journey')">Book Now</button>
+                        </div>
+                    </div>
+                    <!-- Movie Card 7 -->
+                    <div class="movie-card">
+                        <img src="mv/i7.avif" alt="Movie 7" class="movie-image">
+                        <div class="movie-details">
+                            <h3>Fast Lanes</h3>
+                            <p>Release Date: 10th Dec 2024</p>
+                            <p>Genre: Action</p>
+                            <p>Rating: ★★★★☆</p>
+                            <button class="btn" onclick="bookNow('Fast Lanes')">Book Now</button>
+                        </div>
+                    </div>
+                    <!-- Movie Card 8 -->
+                    <div class="movie-card">
+                        <img src="mv/r5.avif" alt="Movie 8" class="movie-image">
+                        <div class="movie-details">
+                            <h3>Hidden Treasures</h3>
+                            <p>Release Date: 5th Dec 2024</p>
+                            <p>Genre: Adventure</p>
+                            <p>Rating: ★★★★☆</p>
+                            <button class="btn" onclick="bookNow('Hidden Treasures')">Book Now</button>
+                        </div>
+                    </div>
+                    <!-- Movie Card 9 -->
+                    <div class="movie-card">
+                        <img src="mv/i6.avif" alt="Movie 9" class="movie-image">
+                        <div class="movie-details">
+                            <h3>Breaking Waves</h3>
+                            <p>Release Date: 1st Dec 2024</p>
+                            <p>Genre: Romance/Drama</p>
+                            <p>Rating: ★★★★★</p>
+                            <button class="btn" onclick="bookNow('Breaking Waves')">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+           
+        </div>
+     
+  
+
+
+    
   </div>
 
   <script 
