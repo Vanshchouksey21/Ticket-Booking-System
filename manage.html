@@ -308,6 +308,26 @@ button.delete-btn {
 button.delete-btn:hover {
     background-color: #e60000;
 }
+.edit-btn {
+  background-color: #007bff; /* Blue color */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.edit-btn:active {
+  transform: scale(0.95); /* Press effect */
+}
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -452,7 +472,8 @@ button.delete-btn:hover {
           <th>Emails</th>
           <th>Date</th>
           <th>Seats</th>
-          <th>Action</th>
+          <th colspan="2">Action</th>
+         
         </tr>
       </thead>
       <tbody>
@@ -607,11 +628,13 @@ function displayBookings(bookings) {
       <td>${booking.date}</td>
       <td>${booking.seats}</td>
       <td><button class="delete-btn" onclick="deleteBooking('${booking.id}')">Cancel Tickets</button></td>
+      <td><button class="edit-btn" onclick="editBooking('${booking.id}')">Edit Ticket</button></td>
     `;
 
     tableBody.appendChild(row);
   });
 }
+
 
 // Function to delete a booking
 async function deleteBooking(bookingId) {
@@ -641,6 +664,81 @@ async function deleteBooking(bookingId) {
   });
 }
 
+async function editBooking(bookingId) {
+  try {
+    // Fetch current booking details
+    const response = await fetch(`http://localhost:3000/tickets/${bookingId}`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch booking details. Status: ${response.status}`);
+    }
+
+    const booking = await response.json();
+
+    // Show SweetAlert2 form with existing data
+    const { value: formValues } = await Swal.fire({
+      title: "Edit Booking",
+      html: `
+        <input id="swal-name" class="swal2-input" placeholder="Name" value="${booking.name}">
+        <input id="swal-email" class="swal2-input" placeholder="Email" value="${booking.email}">
+        <input id="swal-date" type="date" class="swal2-input" value="${booking.date}">
+        <input id="swal-seats" type="number" class="swal2-input" placeholder="Seats" value="${booking.seats}">
+      `,
+      focusConfirm: false,
+      showCancelButton: true,
+      confirmButtonText: "Save Changes",
+      preConfirm: () => {
+        return {
+          name: document.getElementById("swal-name").value.trim(),
+          email: document.getElementById("swal-email").value.trim(),
+          date: document.getElementById("swal-date").value,
+          seats: parseInt(document.getElementById("swal-seats").value, 10)
+        };
+      }
+    });
+
+    // If user cancels, exit function
+    if (!formValues) return;
+
+    // Validate input
+    if (!formValues.name || !formValues.email || !formValues.date || isNaN(formValues.seats) || formValues.seats <= 0) {
+      Swal.fire("Invalid Input", "Please enter valid booking details.", "warning");
+      return;
+    }
+
+    // Prepare updated booking data
+    const updatedBooking = {
+      ...booking,
+      name: formValues.name,
+      email: formValues.email,
+      date: formValues.date,
+      seats: formValues.seats
+    };
+
+    // Send PUT request to update booking
+    const putResponse = await fetch(`http://localhost:3000/tickets/${bookingId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(updatedBooking)
+    });
+
+    if (!putResponse.ok) {
+      throw new Error(`Failed to update booking. Status: ${putResponse.status}`);
+    }
+
+    // Show success message and refresh table
+    Swal.fire("Success", "Booking updated successfully!", "success");
+    fetchBookingsData(); // Refresh the table after update
+  } catch (error) {
+    console.error("Error updating booking:", error);
+    Swal.fire("Error", `An error occurred: ${error.message}`, "error");
+  }
+}
+
+
+
     // Search bookings by ID
     document.getElementById('search-btn').addEventListener('click', async function() {
     const searchInput = document.getElementById('search-input').value.toLowerCase();
@@ -667,5 +765,10 @@ document.getElementById("logoutBtn").addEventListener("click", function () {
 
 
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="main.js"></script>
+
 </body>
 </html>
