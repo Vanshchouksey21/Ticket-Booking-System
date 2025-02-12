@@ -43,7 +43,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    
+/*     
     .nav-links {
         display: none;
         flex-direction: column;
@@ -53,7 +53,7 @@ body {
         background-color: rgba(0, 0, 0, 0.9);
         width: 100%;
         padding: 20px;
-    }
+    } */
 
     
     .hamburger {
