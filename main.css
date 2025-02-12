@@ -126,7 +126,7 @@ body {
         position: absolute;
         background: var(--primary);
         width: 100%;
-        top: 170px;
+        top: 150px;
         left: 0;
         padding: 1rem;
     }
