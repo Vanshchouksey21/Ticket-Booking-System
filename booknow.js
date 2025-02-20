@@ -67,13 +67,6 @@ bookingForm.addEventListener('submit', async (e) => {
     });
     
     if (response.ok) {
-      // Mark selected seats as booked
-      selectedSeats.forEach(seatId => {
-        const seat = document.querySelector(`.seat[data-seat-id='${seatId}']`);
-        seat.classList.add('booked');
-        seat.classList.remove('selected');
-      });
-    
       // Wait for the user to click "OK" before proceeding
       await Swal.fire({
         title: 'Booking Confirmed!',
@@ -81,16 +74,19 @@ bookingForm.addEventListener('submit', async (e) => {
         icon: 'success',
         confirmButtonText: 'OK',
       });
-    
-      // Redirect to homepage after user confirms
-      window.location.href = 'index.html';
-    
+  
+      // Mark selected seats as booked AFTER user clicks "OK"
+      selectedSeats.forEach(seatId => {
+        const seat = document.querySelector(`.seat[data-seat-id='${seatId}']`);
+        seat.classList.add('booked');
+        seat.classList.remove('selected');
+      });
+  
       // Clear the form and reset selected seats
       bookingForm.reset();
       selectedSeats = [];
       updateTicketCount();
-    }
-     else {
+    } else {
       throw new Error('Failed to save booking');
     }
   } catch (error) {
@@ -108,14 +104,21 @@ bookingForm.addEventListener('submit', async (e) => {
 const loadBookedSeats = async () => {
   try {
     const response = await fetch('http://localhost:3000/tickets');
-    const bookings = await response.json();
+    if (!response.ok) throw new Error('Failed to fetch bookings');
     
+    const bookings = await response.json();
+
     let bookedSeats = new Set();
     bookings.forEach(booking => {
-      booking.seats.forEach(seatId => {
-        bookedSeats.add(seatId);
-      });
+      if (Array.isArray(booking.seats)) {
+        booking.seats.forEach(seatId => {
+          bookedSeats.add(seatId);
+        });
+      } else {
+        console.warn("Invalid seats data format:", booking.seats);
+      }
     });
+    
 
     // Apply 'booked' class to booked seats
     seats.forEach(seat => {
@@ -125,7 +128,12 @@ const loadBookedSeats = async () => {
       }
     });
   } catch (error) {
-    console.error('Error loading booked seats:', error);
+    console.error("Error loading booked seats:", error);
+    Swal.fire({
+      title: 'Error!',
+      text: 'Failed to load booked seats. Please try again later.',
+      icon: 'error',
+    });
   }
 };
 
