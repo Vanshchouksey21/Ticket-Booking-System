@@ -42,6 +42,7 @@ function bookNow(movieName) {
   });
 }
 
+
 // Ensure the 'opa' function runs on page load
 // document.addEventListener('DOMContentLoaded', () => {
 //   opa();
