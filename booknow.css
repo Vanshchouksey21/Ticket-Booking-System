@@ -236,8 +236,11 @@
   }
 }
 
-/* Responsive Booking Section */
-@media (max-width: 768px) {
+
+
+/* Responsive Seat Layout */
+@media (max-width: 1080px) {
+
   .booking-card {
     flex-direction: column;
     align-items: center;
@@ -250,18 +253,17 @@
   }
 
   .movie-info img {
-    max-width: 100%;
+    max-width: 50%;
   }
 
   .booking-form {
-    width: 100%;
+    width: 70%;
+    height: 55%;
   }
-}
-
-/* Responsive Seat Layout */
-@media (max-width: 600px) {
   .seat-layout {
-    grid-template-columns: repeat(5, 1fr); /* Reduce columns on small screens */
+   
+    grid-template-columns: repeat(3, 3fr); /* Reduce columns on small screens */
+
   }
 }
 
