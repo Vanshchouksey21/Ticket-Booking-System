@@ -26,7 +26,7 @@ async function submitContactForm(event) {
     submitButton.textContent = "Sending...";
 
     try {
-        let response = await fetch("http://localhost:3000/vn", {
+        let response = await fetch("https://js-project-json-vnnw.onrender.com/vn", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, message })
@@ -68,19 +68,18 @@ async function submitContactForm(event) {
 // Attach event listener to the form
 document.querySelector(".contact-form").addEventListener("submit", submitContactForm);
 
-
 // Function to fetch and display feedback
 const fetchFeedback = async () => {
     const feedbackContainer = document.querySelector(".feedback-container");
 
     try {
-        let response = await fetch("http://localhost:3000/vn");
+        let response = await fetch("https://js-project-json-vnnw.onrender.com/vn");
 
         if (!response.ok) throw new Error("Failed to fetch feedback.");
 
         let data = await response.json();
 
-        feedbackContainer.innerHTML = ""; 
+        feedbackContainer.innerHTML = "";
 
         if (data.length === 0) {
             feedbackContainer.innerHTML = "<p>No feedback yet. Be the first to leave a message!</p>";

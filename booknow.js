@@ -1,4 +1,3 @@
-
 const seats = document.querySelectorAll('.seat');
 const bookingForm = document.getElementById('booking-form');
 const ticketCountElem = document.getElementById('ticket-count');
@@ -33,7 +32,6 @@ seats.forEach(seat => {
 bookingForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   
-  // If no seats are selected, show an alert
   if (selectedSeats.length === 0) {
     return Swal.fire({
       title: 'No Seats Selected',
@@ -42,7 +40,6 @@ bookingForm.addEventListener('submit', async (e) => {
     });
   }
 
-  // Gather form data
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const date = document.getElementById('date').value;
@@ -57,8 +54,7 @@ bookingForm.addEventListener('submit', async (e) => {
   };
 
   try {
-    // Send new booking data to your backend
-    const response = await fetch('http://localhost:3000/tickets', {
+    const response = await fetch('https://js-project-json-vnnw.onrender.com/tickets', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -67,22 +63,20 @@ bookingForm.addEventListener('submit', async (e) => {
     });
     
     if (response.ok) {
-      // Wait for the user to click "OK" before proceeding
       await Swal.fire({
         title: 'Booking Confirmed!',
         text: `Your ticket has been successfully booked for ${newBooking.name}.`,
         icon: 'success',
         confirmButtonText: 'OK',
       });
-  
-      // Mark selected seats as booked AFTER user clicks "OK"
+
+      // Mark selected seats as booked
       selectedSeats.forEach(seatId => {
         const seat = document.querySelector(`.seat[data-seat-id='${seatId}']`);
         seat.classList.add('booked');
         seat.classList.remove('selected');
       });
-  
-      // Clear the form and reset selected seats
+
       bookingForm.reset();
       selectedSeats = [];
       updateTicketCount();
@@ -90,7 +84,6 @@ bookingForm.addEventListener('submit', async (e) => {
       throw new Error('Failed to save booking');
     }
   } catch (error) {
-    // Show error message if something goes wrong
     Swal.fire({
       title: 'Error!',
       text: error.message,
@@ -103,7 +96,7 @@ bookingForm.addEventListener('submit', async (e) => {
 // Load booked seats from the server and mark them as booked
 const loadBookedSeats = async () => {
   try {
-    const response = await fetch('http://localhost:3000/tickets');
+    const response = await fetch('https://js-project-json-vnnw.onrender.com/tickets');
     if (!response.ok) throw new Error('Failed to fetch bookings');
     
     const bookings = await response.json();
@@ -118,9 +111,7 @@ const loadBookedSeats = async () => {
         console.warn("Invalid seats data format:", booking.seats);
       }
     });
-    
 
-    // Apply 'booked' class to booked seats
     seats.forEach(seat => {
       const seatId = seat.getAttribute('data-seat-id');
       if (bookedSeats.has(seatId)) {
@@ -137,5 +128,4 @@ const loadBookedSeats = async () => {
   }
 };
 
-// Call the function to load booked seats on page load
 window.onload = loadBookedSeats;
